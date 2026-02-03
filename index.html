@@ -43,18 +43,22 @@
     </div>
   </nav>
   <!---this is the main content-->
-  <div class="bg-dark text-light p-5 text-center text-sm-start">
+  <div class="bg-dark text-light text-center p-5 text-sm-start">
     <div class="container">
       <div class="d-sm-flex align-items-center justify-content-between">
+
         <div>
-          <h1 class="text-danger fw-bold">Frontend Developer</h1>
+          <h1 class="text-danger fw-bold">Frontend Developer & UI Designer</h1>
           <p class="lead my-4">Hi, I'm a passionate web developer and designer.</p>
           <button class="btn btn-primary btn-lg">Hire Me</button>
 
           
 
         </div>
-        <img class="img-fluid w-50 rounded-5 d-none d-sm-block" src="images/passport photo.jpg" alt="">
+
+        
+        <img class="hero-img img-fluid w-50 rounded-5 d-none d-sm-block reveal-zoom" src="images/passport photo.jpg" alt="">
+        
       </div>
     </div>
   </div>
@@ -64,7 +68,7 @@
   <!--section for my services-->
   <section class="p-5">
     <div class="container">
-      <h2 class="text-center mb-4 fw-bold text-primary">My Services</h2>
+      <h2 class="text-center mb-4 reveal fw-bold text-primary">My Services</h2>
       <div class="row g-4">
         <div class="col-md-4 text-center">
           <div class="card bg-light p-3">
@@ -274,6 +278,28 @@
     }
 
 
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".navbar .nav-link");
+
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 120;
+          if (pageYOffset >= sectionTop)  {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active")
+
+          }
+        });
+      });
 
     </script>
 </body>
